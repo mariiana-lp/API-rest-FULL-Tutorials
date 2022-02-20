@@ -150,6 +150,17 @@ public class TutorialController {
 		}
 	}
 
+	//Metodo de busqueda por precio
+	@GetMapping(path = "/tutorials/price")
+	public ResponseEntity<List<Tutorial>> findByPrice(@RequestParam("price") int price) {
+		List<Tutorial> tutorialData = tutorialRepository.findByPrice(price);
+		if(tutorialData.isEmpty()){
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<>(tutorialData, HttpStatus.OK);
+
+	}
+
 
 
 

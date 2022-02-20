@@ -6,5 +6,8 @@
 1.Eliminar tutorial por titulo
 ![](../../../../Imágenes/Evidencia1_EliminarPorTitulo.jpeg)
 
-2.Actializacion tutorial por titulo
+2.Actualizacion tutorial por titulo
 ![](../../../../Imágenes/Evidencia2_ActualizarPorTitulo.jpeg)
+
+3.Busqueda por precio
+![](../../../../Imágenes/Evidencia3_Buscarprecio.jpeg)
