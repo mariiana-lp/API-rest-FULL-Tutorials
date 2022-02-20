@@ -107,6 +107,17 @@ public class TutorialController {
 		}
 
 	}
+	//Eliminar tutorial por titulo
+	@DeleteMapping("/deleteTutorialsByTitle/{title}")
+	public ResponseEntity<String> deleteTutorialByTittle(@PathVariable("title") String title){
+		try{
+			tutorialRepository.deleteAll(tutorialRepository.findByTitleContaining(title));
+			return new ResponseEntity<>("El tutorial " + title + " ha sido eliminado de forma exitosa", HttpStatus.OK);
+		}catch (Exception exception){
+			return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
+		}
+
+	}
 
 	@GetMapping("/tutorials/published")
 	public ResponseEntity<List<Tutorial>> findByPublished() {
