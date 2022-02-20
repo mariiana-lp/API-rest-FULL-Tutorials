@@ -107,17 +107,6 @@ public class TutorialController {
 		}
 
 	}
-	//Eliminar tutorial por titulo
-	@DeleteMapping("/deleteTutorialsByTitle/{title}")
-	public ResponseEntity<String> deleteTutorialByTittle(@PathVariable("title") String title){
-		try{
-			tutorialRepository.deleteAll(tutorialRepository.findByTitleContaining(title));
-			return new ResponseEntity<>("El tutorial " + title + " ha sido eliminado de forma exitosa", HttpStatus.OK);
-		}catch (Exception exception){
-			return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
-		}
-
-	}
 
 	@GetMapping("/tutorials/published")
 	public ResponseEntity<List<Tutorial>> findByPublished() {
@@ -132,5 +121,33 @@ public class TutorialController {
 			return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
 		}
 	}
+
+	//Metodo Eliminar tutorial por titulo
+	@DeleteMapping("/tutorials/deleteTutorialsByTitle/{title}")
+	public ResponseEntity<String> deleteTutorialByTittle(@PathVariable("title") String title){
+		try{
+			tutorialRepository.deleteAll(tutorialRepository.findByTitleContaining(title));
+			return new ResponseEntity<>("El tutorial " + title + " ha sido eliminado de forma exitosa", HttpStatus.OK);
+		}catch (Exception exception){
+			return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
+		}
+
+	}
+
+	//Metodo Actualizacion de tutorial por Titulo
+	@PutMapping("/tutorials/updateTutorialByTitle/{title}")
+	public ResponseEntity<Tutorial> updatetutorialByTitle(@PathVariable("title") String title, @RequestBody Tutorial tutorial){
+		try{
+			Tutorial _tutorial = tutorialRepository.findByTitleContaining(title).get(0);
+			_tutorial.setTitle(tutorial.getTitle());
+			_tutorial.setDescription(tutorial.getDescription());
+			_tutorial.setPublished(tutorial.isPublished());
+			return new ResponseEntity<>(tutorialRepository.save(_tutorial), HttpStatus.OK);
+		}catch (Exception exception){
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	
 
 }

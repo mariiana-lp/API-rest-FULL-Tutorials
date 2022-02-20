@@ -4,3 +4,4 @@
 "Evidencias ejecucion de los metodos:"
 
 1.Eliminar tutorial por titulo
+![](../../../../Imágenes/Evidencia1_EliminarPorTitulo.jpeg)
