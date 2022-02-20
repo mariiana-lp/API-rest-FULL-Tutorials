@@ -5,3 +5,6 @@
 
 1.Eliminar tutorial por titulo
 ![](../../../../Imágenes/Evidencia1_EliminarPorTitulo.jpeg)
+
+2.Actializacion tutorial por titulo
+![](../../../../Imágenes/Evidencia2_ActualizarPorTitulo.jpeg)
